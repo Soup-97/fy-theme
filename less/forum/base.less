@@ -1,0 +1,113 @@
+// ---------------------------------------------------------------------------
+// Typography, page background, layout, scrollbars.
+
+body {
+  font-family: var(--fy-font-body, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Roboto, Helvetica, Arial, sans-serif);
+  font-size: ~"calc(13px * var(--fy-font-scale, 100) / 100)";
+  line-height: var(--fy-line-height, 1.5);
+}
+
+h1, h2, h3, h4, h5, h6,
+.Hero-title,
+.DiscussionHero-title,
+.DiscussionListItem-title,
+.UserCard-identity {
+  font-family: var(--fy-font-heading, var(--fy-font-body, inherit));
+}
+h1, h2, h3, .Hero-title, .DiscussionHero-title {
+  font-weight: var(--fy-heading-weight, 700);
+}
+
+::selection {
+  background: ~"color-mix(in srgb, var(--fy-accent-resolved) 30%, transparent)";
+}
+
+:focus-visible {
+  outline: 2px solid var(--fy-accent-resolved);
+  outline-offset: 2px;
+}
+
+// Page background
+html[data-fy-background] body { background-attachment: fixed; }
+
+html[data-fy-background=gradient] body {
+  background-image: ~"linear-gradient(180deg, var(--fy-accent-softer), transparent 420px)";
+}
+html[data-fy-background=mesh] body {
+  background-image:
+    ~"radial-gradient(60vw 40vw at 0% 0%, color-mix(in srgb, var(--fy-accent-resolved) 13%, transparent), transparent 70%)",
+    ~"radial-gradient(50vw 40vw at 100% 10%, color-mix(in srgb, var(--fy-accent-2-resolved) 11%, transparent), transparent 70%)";
+}
+html[data-fy-background=dots] body {
+  background-image: ~"radial-gradient(color-mix(in srgb, var(--text-color) 12%, transparent) 1px, transparent 1px)";
+  background-size: 18px 18px;
+}
+html[data-fy-background=grid] body {
+  background-image:
+    ~"linear-gradient(color-mix(in srgb, var(--text-color) 6%, transparent) 1px, transparent 1px)",
+    ~"linear-gradient(90deg, color-mix(in srgb, var(--text-color) 6%, transparent) 1px, transparent 1px)";
+  background-size: 32px 32px;
+}
+html[data-fy-background=image] body {
+  background-image: var(--fy-bg-image, none);
+  background-size: cover;
+  background-position: center;
+}
+
+// Layout
+@media @desktop-up {
+  html[data-fy-sidebar-position=right] .Page-container {
+    flex-direction: row-reverse;
+  }
+  .Page {
+    --sidebar-width: var(--fy-sidebar-width, 190px);
+  }
+  html[data-fy-sticky-sidebar=true] .Page-sidebar > * {
+    position: sticky;
+    top: ~"calc(var(--header-height) + 20px)";
+  }
+}
+@media @desktop-hd {
+  .Page { --sidebar-width: var(--fy-sidebar-width, 260px); }
+}
+@media @desktop-xxl {
+  .Page { --sidebar-width: var(--fy-sidebar-width, 280px); }
+}
+
+.sideNav > ul > li > a,
+.sideNav .Dropdown-menu > li > a {
+  border-radius: var(--fy-radius-sm);
+}
+.sideNav .active > a,
+.sideNav .Dropdown-menu > li.active > a {
+  background: var(--fy-accent-soft);
+  color: var(--fy-accent-resolved);
+}
+
+// Buttons and inputs follow the radius
+.Button, .FormControl, .Dropdown-menu, .Modal-content, .Alert, .Search-input input {
+  border-radius: var(--border-radius);
+}
+.Button--primary {
+  transition: background var(--fy-duration) var(--fy-ease), transform var(--fy-duration) var(--fy-ease), box-shadow var(--fy-duration) var(--fy-ease);
+}
+html:not([data-fy-animations=none]) .Button--primary:hover {
+  box-shadow: 0 4px 14px ~"color-mix(in srgb, var(--fy-accent-resolved) 35%, transparent)";
+}
+.FormControl:focus {
+  border-color: var(--fy-accent-resolved);
+  box-shadow: 0 0 0 3px var(--fy-accent-soft);
+}
+
+// Avatars
+html[data-fy-avatar-shape=rounded] .Avatar { border-radius: 28%; }
+html[data-fy-avatar-shape=square] .Avatar { border-radius: var(--fy-radius-sm); }
+
+// Scrollbars
+html[data-fy-scrollbar=thin], html[data-fy-scrollbar=accent] {
+  scrollbar-width: thin;
+  scrollbar-color: ~"color-mix(in srgb, var(--text-color) 25%, transparent)" transparent;
+}
+html[data-fy-scrollbar=accent] {
+  scrollbar-color: var(--fy-accent-resolved) transparent;
+}

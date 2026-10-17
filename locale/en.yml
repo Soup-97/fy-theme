@@ -1,0 +1,44 @@
+fy-theme:
+  admin:
+    studio:
+      undo: Undo (Ctrl+Z)
+      redo: Redo (Ctrl+Y)
+      customized: "{count, plural, =0 {Using defaults} one {# option customized} other {# options customized}}"
+      import: Import
+      export: Export
+      copy_json: Copy JSON
+      copied: Theme configuration copied to the clipboard.
+      import_success: Theme imported. Review the preview, then save.
+      import_error: That file is not a valid FY Theme export.
+      reset: Reset all
+      reset_confirm: Reset every theme option to its default? You can still undo before saving.
+      reset_option: Reset to default
+      search_placeholder: Search all options…
+      no_results: No options match your search.
+      inherit: Inherit
+      clear: Clear
+      auto: Auto
+      same_as_body: Same as body font
+      invalid_value: That value isn't allowed, so the previous one was kept.
+      contrast_help: Contrast between the accent and its text color (WCAG). Aim for 4.5:1 or more.
+      preview: Live preview
+      preview_path: Preview page path
+      reload: Reload preview
+      device_desktop: Desktop
+      device_tablet: Tablet
+      device_phone: Phone
+      scheme_auto: Follow the visitor's color scheme
+      scheme_light: Light
+      scheme_dark: Dark
+
+  forum:
+    announcement:
+      dismiss: Dismiss announcement
+    back_to_top: Back to top
+    settings:
+      heading: Theme
+      accent_label: Accent color
+      density_label: Density
+      font_scale_label: Text size
+      forum_default: Forum default
+      reset: Reset

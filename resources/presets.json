@@ -1,0 +1,42 @@
+{
+  "aurora": {
+    "label": "Aurora",
+    "description": "Violet glass with mesh glow — the default look.",
+    "values": { "accent": "#6366f1", "accent2": "#a855f7", "fontBody": "inter", "headerStyle": "glass", "heroStyle": "gradient", "listStyle": "cards", "postStyle": "cards", "background": "mesh", "radius": 12, "shadows": "soft" }
+  },
+  "midnight": {
+    "label": "Midnight",
+    "description": "Deep navy surfaces with electric cyan.",
+    "values": { "accent": "#06b6d4", "accent2": "#3b82f6", "darkBg": "#0b1120", "darkSurface": "#111a2e", "fontBody": "manrope", "headerStyle": "glass", "heroStyle": "gradient", "listStyle": "cards", "background": "grid", "radius": 10, "shadows": "medium" }
+  },
+  "forest": {
+    "label": "Forest",
+    "description": "Calm greens, serif headings, lots of air.",
+    "values": { "accent": "#16a34a", "accent2": "#84cc16", "lightBg": "#f6faf5", "fontBody": "source-sans", "fontHeading": "merriweather", "headerStyle": "solid", "heroStyle": "minimal", "listStyle": "divided", "postStyle": "classic", "background": "none", "density": "spacious", "radius": 6, "shadows": "none" }
+  },
+  "sunset": {
+    "label": "Sunset",
+    "description": "Warm orange-to-pink gradients, playful motion.",
+    "values": { "accent": "#f97316", "accent2": "#ec4899", "gradientAngle": 120, "fontBody": "poppins", "headerStyle": "gradient", "heroStyle": "gradient", "listStyle": "cards", "hoverEffect": "glow", "postStyle": "bubbles", "background": "gradient", "animations": "playful", "radius": 16 }
+  },
+  "ocean": {
+    "label": "Ocean",
+    "description": "Blue and teal, rounded and friendly.",
+    "values": { "accent": "#0ea5e9", "accent2": "#14b8a6", "fontBody": "nunito", "headerStyle": "accent-line", "heroStyle": "gradient", "listStyle": "cards", "hoverEffect": "accent-bar", "background": "dots", "avatarShape": "rounded", "radius": 14 }
+  },
+  "neon": {
+    "label": "Neon",
+    "description": "Cyberpunk magenta and lime on near-black.",
+    "values": { "accent": "#d946ef", "accent2": "#22d3ee", "darkBg": "#09090b", "darkSurface": "#131316", "fontBody": "space-grotesk", "fontHeading": "jetbrains-mono", "headerStyle": "glass", "heroStyle": "gradient", "hoverEffect": "glow", "background": "grid", "scrollbar": "accent", "shadows": "strong", "radius": 4 }
+  },
+  "minimal": {
+    "label": "Minimal",
+    "description": "Monochrome, flat, compact. Content first.",
+    "values": { "accent": "#18181b", "accent2": "#52525b", "fontBody": "inter", "headerStyle": "solid", "headerShadow": false, "heroStyle": "minimal", "listStyle": "compact", "hoverEffect": "none", "postStyle": "classic", "background": "none", "density": "compact", "shadows": "none", "glass": false, "animations": "none", "radius": 4 }
+  },
+  "classic": {
+    "label": "Flarum classic",
+    "description": "Stays close to stock Flarum while keeping the extra features.",
+    "values": { "accent": "", "headerStyle": "default", "heroStyle": "default", "listStyle": "classic", "hoverEffect": "none", "postStyle": "classic", "background": "none", "shadows": "none", "glass": false, "radius": 4, "fontBody": "system", "highlightAuthor": false }
+  }
+}

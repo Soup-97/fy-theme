@@ -1,0 +1,51 @@
+// ---------------------------------------------------------------------------
+// Glass, motion
+
+html[data-fy-glass=true] {
+  .Dropdown-menu,
+  .Modal-content,
+  .Composer:not(.minimized),
+  .Search-results {
+    background: var(--fy-glass);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    backdrop-filter: saturate(180%) blur(18px);
+    border: 1px solid var(--fy-border);
+  }
+}
+
+.Dropdown-menu,
+.Modal-content,
+.Composer {
+  box-shadow: var(--fy-shadow-hover), var(--fy-shadow);
+}
+
+.Dropdown-menu > li > a,
+.Dropdown-menu > li > button {
+  border-radius: var(--fy-radius-sm);
+}
+
+html:not([data-fy-animations=none]) {
+  .Dropdown.open > .Dropdown-menu {
+    animation: fy-pop var(--fy-duration) var(--fy-ease);
+  }
+  .DiscussionList-discussions > li {
+    animation: fy-rise ~"calc(var(--fy-duration) * 1.6)" var(--fy-ease) both;
+  }
+}
+
+@keyframes fy-pop {
+  from { opacity: 0; transform: translateY(-4px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fy-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}

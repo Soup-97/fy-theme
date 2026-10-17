@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@soup-97/fy-theme",
+  "version": "0.0.0",
+  "type": "module",
+  "prettier": "@flarum/prettier-config",
+  "devDependencies": {
+    "@flarum/prettier-config": "^1.0.0",
+    "flarum-tsconfig": "^2.0.0",
+    "flarum-webpack-config": "^3.0.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.4.0",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "format": "prettier --write src",
+    "format-check": "prettier --check src"
+  }
+}

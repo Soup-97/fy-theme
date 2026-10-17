@@ -1,0 +1,74 @@
+// ---------------------------------------------------------------------------
+// Posts
+
+@media @tablet-up {
+  html[data-fy-post-style=cards] {
+    .PostStream-item > .Post:not(.EventPost) {
+      background: var(--fy-surface);
+      border: 1px solid var(--fy-border);
+      border-radius: var(--fy-radius-lg);
+      box-shadow: var(--fy-shadow);
+      padding-left: var(--post-padding);
+      margin-bottom: var(--fy-gap);
+    }
+  }
+
+  html[data-fy-post-style=bubbles] {
+    .PostStream-item > .CommentPost {
+      .Post-body,
+      .Post-header {
+        position: relative;
+      }
+      .Post-body {
+        background: var(--fy-surface);
+        border: 1px solid var(--fy-border);
+        border-radius: var(--fy-radius-lg);
+        border-top-left-radius: var(--fy-radius-sm);
+        padding: 12px 16px;
+        box-shadow: var(--fy-shadow);
+      }
+    }
+    .PostStream-item > .CommentPost.Post--by-actor .Post-body {
+      background: var(--fy-accent-softer);
+      border-color: var(--fy-accent-soft);
+    }
+  }
+}
+
+html[data-fy-highlight-author=true] .CommentPost.Post--by-start-user {
+  .PostUser-name .username::after {
+    content: "OP";
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    vertical-align: middle;
+    background: var(--fy-accent-soft);
+    color: var(--fy-accent-resolved);
+  }
+}
+html[data-fy-highlight-author=true][data-fy-post-style=cards] .PostStream-item > .CommentPost.Post--by-start-user {
+  border-left: 3px solid var(--fy-accent-resolved);
+}
+
+.Post-body {
+  line-height: var(--fy-line-height, 1.7);
+
+  blockquote {
+    border-left: 3px solid var(--fy-accent-resolved);
+    background: var(--fy-accent-softer);
+    border-radius: 0 var(--fy-radius-sm) var(--fy-radius-sm) 0;
+  }
+  code, pre {
+    border-radius: var(--fy-radius-sm);
+  }
+}
+
+.DiscussionHero {
+  .DiscussionHero-title {
+    letter-spacing: -.01em;
+  }
+}

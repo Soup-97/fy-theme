@@ -1,0 +1,89 @@
+// ---------------------------------------------------------------------------
+// Welcome hero
+
+.Hero {
+  min-height: var(--fy-hero-min-height, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  > * { position: relative; z-index: 1; }
+}
+
+html[data-fy-hero-align=left] .Hero {
+  text-align: left;
+}
+
+html[data-fy-hero-style=gradient] .WelcomeHero,
+html[data-fy-hero-style=image] .WelcomeHero {
+  --hero-bg: var(--fy-accent-resolved);
+  --hero-color: var(--fy-on-accent);
+  color: var(--fy-on-accent);
+
+  .container { padding-top: 48px; padding-bottom: 48px; }
+  .Hero-title { font-size: 30px; line-height: 1.2; letter-spacing: -.02em; }
+  .Hero-subtitle { font-size: 16px; opacity: .92; max-width: 640px; }
+  .Hero-subtitle a { color: inherit; text-decoration: underline; }
+}
+html[data-fy-hero-style=gradient][data-fy-hero-align=center] .WelcomeHero .Hero-subtitle,
+html[data-fy-hero-style=image][data-fy-hero-align=center] .WelcomeHero .Hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html[data-fy-hero-style=gradient] .WelcomeHero {
+  background: var(--fy-gradient);
+
+  // Soft light blobs
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background:
+      ~"radial-gradient(closest-side at 20% 30%, rgba(255, 255, 255, .22), transparent)",
+      ~"radial-gradient(closest-side at 80% 70%, rgba(255, 255, 255, .14), transparent)";
+    z-index: 0;
+  }
+}
+html[data-fy-hero-style=gradient][data-fy-animations=playful] .WelcomeHero::before {
+  animation: fy-drift 18s ease-in-out infinite alternate;
+}
+
+html[data-fy-hero-style=image] .WelcomeHero {
+  --hero-color: #fff;
+  color: #fff;
+  background-color: #111;
+  background-image:
+    ~"linear-gradient(rgb(0 0 0 / var(--fy-hero-overlay, 45%)), rgb(0 0 0 / var(--fy-hero-overlay, 45%)))",
+    var(--fy-hero-image, none);
+  background-size: cover;
+  background-position: center;
+}
+
+html[data-fy-hero-style=minimal] .WelcomeHero {
+  background: transparent;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--fy-border);
+
+  .Hero-title { font-size: 22px; }
+}
+
+html[data-fy-hero-style=hidden] .WelcomeHero {
+  display: none;
+}
+
+@media @phone {
+  html[data-fy-hero-style=gradient] .WelcomeHero .container,
+  html[data-fy-hero-style=image] .WelcomeHero .container {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  html[data-fy-hero-style] .WelcomeHero .Hero-title { font-size: 22px; }
+}
+
+@keyframes fy-drift {
+  from { transform: translate3d(-4%, -2%, 0) rotate(0deg); }
+  to { transform: translate3d(4%, 3%, 0) rotate(8deg); }
+}

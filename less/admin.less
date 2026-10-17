@@ -1,0 +1,255 @@
+// FY Theme — Theme Studio (admin)
+
+.FyStudio-page .ExtensionPage-body > .container,
+.FyStudio-page .ExtensionPage-settings > .container {
+  max-width: none;
+}
+
+.FyStudio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0 40px;
+}
+
+.FyStudio-toolbar {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--body-bg);
+  border: 1px solid var(--control-bg);
+  border-radius: 10px;
+
+  &-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+}
+.FyStudio-save { margin: 0; }
+.FyStudio-changed { margin-left: 6px; }
+
+// Presets
+.FyStudio-presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+}
+.FyStudio-preset {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  padding: 10px;
+  text-align: left;
+  background: var(--body-bg);
+  border: 1px solid var(--control-bg);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: border-color .15s, transform .15s;
+
+  &:hover { border-color: var(--primary-color); transform: translateY(-1px); }
+
+  &-swatch { grid-row: span 2; width: 34px; height: 34px; border-radius: 8px; }
+  &-label { font-weight: 700; }
+  &-description {
+    font-size: 11px;
+    color: var(--muted-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+// Workspace
+.FyStudio-workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  gap: 16px;
+  align-items: start;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.FyStudio-panel {
+  border: 1px solid var(--control-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.FyStudio-tabs {
+  padding: 12px;
+  background: var(--control-bg);
+}
+.FyStudio-search {
+  position: relative;
+  margin-bottom: 10px;
+
+  .icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted-color);
+  }
+  .FormControl { padding-left: 32px; }
+}
+.FyStudio-tabList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.FyStudio-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--control-color);
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover { background: var(--body-bg); }
+  &.active { background: var(--primary-color); color: #fff; }
+}
+
+.FyStudio-options {
+  padding: 14px 16px;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+}
+.FyStudio-option {
+  margin-bottom: 18px;
+
+  > .helpText { margin: 2px 0 8px; }
+
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    label { font-weight: 600; margin: 0; }
+  }
+  &-reset {
+    border: 0;
+    background: none;
+    color: var(--muted-color);
+    cursor: pointer;
+    &:hover { color: var(--primary-color); }
+  }
+}
+
+.FyStudio-color {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input[type=color] {
+    width: 40px;
+    height: 36px;
+    padding: 2px;
+    border: 1px solid var(--control-bg);
+    border-radius: 6px;
+    background: var(--body-bg);
+    cursor: pointer;
+  }
+  .FormControl { flex: 1; font-family: monospace; }
+}
+.FyStudio-contrast {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  &.is-low { background: #fee2e2; color: #991b1b; }
+}
+
+.FyStudio-range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  input[type=range] { flex: 1; accent-color: var(--primary-color); }
+  output {
+    min-width: 58px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted-color);
+  }
+}
+
+.FyStudio-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 3px;
+  gap: 2px;
+  background: var(--control-bg);
+  border-radius: 8px;
+
+  button {
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--control-color);
+    cursor: pointer;
+    font-size: 12px;
+
+    &.active {
+      background: var(--body-bg);
+      color: var(--text-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+    }
+  }
+}
+
+.FyStudio-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+// Preview
+.FyStudio-preview {
+  position: sticky;
+  top: calc(var(--header-height) + 70px);
+  border: 1px solid var(--control-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--control-bg);
+}
+.FyStudio-previewBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+}
+.FyStudio-previewPath {
+  flex: 1;
+  font-family: monospace;
+}
+.FyStudio-frameWrap {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 240px);
+  min-height: 520px;
+  background: repeating-conic-gradient(var(--control-bg) 0 25%, var(--body-bg) 0 50%) 0 0 / 20px 20px;
+}
+.FyStudio-frame {
+  height: 100%;
+  border: 0;
+  background: var(--body-bg);
+  transition: width .25s ease;
+  box-shadow: 0 0 0 1px var(--control-bg);
+}

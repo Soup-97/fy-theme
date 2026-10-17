@@ -1,0 +1,63 @@
+// ---------------------------------------------------------------------------
+// Header
+
+.App-header {
+  transition: background var(--fy-duration) var(--fy-ease), box-shadow var(--fy-duration) var(--fy-ease);
+}
+
+html[data-fy-header-style=solid] .App-header {
+  --header-bg: var(--fy-surface);
+  background: var(--fy-surface);
+  border-bottom: 1px solid var(--fy-border);
+}
+
+html[data-fy-header-style=glass] {
+  .App-header {
+    --header-bg: var(--fy-glass);
+    background: var(--fy-glass);
+    -webkit-backdrop-filter: ~"saturate(180%) blur(var(--fy-header-blur, 14px))";
+    backdrop-filter: ~"saturate(180%) blur(var(--fy-header-blur, 14px))";
+    border-bottom: 1px solid var(--fy-border);
+  }
+}
+
+html[data-fy-header-style=gradient] .App-header {
+  --header-bg: var(--fy-accent-resolved);
+  --header-color: var(--fy-on-accent);
+  --header-control-bg: ~"color-mix(in srgb, var(--fy-on-accent) 16%, transparent)";
+  --header-control-color: var(--fy-on-accent);
+  background: var(--fy-gradient);
+  color: var(--fy-on-accent);
+
+  .Header-title a, .Header-controls > li > .Button, .Header-controls .Button--flat {
+    color: var(--fy-on-accent);
+  }
+}
+
+html[data-fy-header-style=accent-line] .App-header {
+  --header-bg: var(--fy-surface);
+  background: var(--fy-surface);
+  border-bottom: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--fy-gradient);
+  }
+}
+
+html[data-fy-header-shadow=true] .App-header {
+  box-shadow: var(--fy-shadow);
+}
+html[data-fy-header-shadow=false] .App-header {
+  box-shadow: none;
+}
+
+.Header-title {
+  font-family: var(--fy-font-heading, var(--fy-font-body, inherit));
+  font-weight: var(--fy-heading-weight, 700);
+}

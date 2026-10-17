@@ -1,0 +1,96 @@
+// ---------------------------------------------------------------------------
+// Discussion list
+
+.DiscussionListItem-content {
+  padding-top: ~"calc(var(--fy-pad) * .8)";
+  padding-bottom: ~"calc(var(--fy-pad) * .8)";
+}
+
+.DiscussionListItem {
+  transition: transform var(--fy-duration) var(--fy-ease), box-shadow var(--fy-duration) var(--fy-ease), background var(--fy-duration) var(--fy-ease), border-color var(--fy-duration) var(--fy-ease);
+}
+
+// Cards
+@media @tablet-up {
+  html[data-fy-list-style=cards] {
+    .DiscussionList-discussions {
+      display: flex;
+      flex-direction: column;
+      gap: ~"calc(var(--fy-gap) * .75)";
+    }
+    .DiscussionListItem {
+      background: var(--fy-surface);
+      border: 1px solid var(--fy-border);
+      border-radius: var(--fy-radius-lg);
+      box-shadow: var(--fy-shadow);
+      margin: 0;
+    }
+    .DiscussionListItem-content {
+      padding-left: var(--fy-pad);
+      padding-right: ~"calc(var(--fy-pad) + 26px)";
+    }
+    .DiscussionListItem-controls {
+      right: 8px;
+      top: 10px;
+    }
+  }
+}
+
+// Divided rows
+html[data-fy-list-style=divided] {
+  .DiscussionListItem {
+    border-bottom: 1px solid var(--fy-border);
+    border-radius: 0;
+  }
+  .DiscussionListItem:last-child { border-bottom: 0; }
+}
+
+// Compact
+html[data-fy-list-style=compact] {
+  .DiscussionListItem-content {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    gap: 10px;
+  }
+  .DiscussionListItem-author .Avatar {
+    --size: 28px;
+  }
+  .DiscussionListItem-title {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+}
+
+// Hover effects
+@media (hover: hover) {
+  html[data-fy-hover-effect=lift] .DiscussionListItem:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--fy-shadow-hover);
+  }
+  html[data-fy-hover-effect=glow] .DiscussionListItem:hover {
+    box-shadow: 0 0 0 1px var(--fy-accent-resolved), 0 8px 28px ~"color-mix(in srgb, var(--fy-accent-resolved) 22%, transparent)";
+  }
+  html[data-fy-hover-effect=accent-bar] .DiscussionListItem {
+    box-shadow: inset 0 0 0 transparent;
+  }
+  html[data-fy-hover-effect=accent-bar] .DiscussionListItem:hover {
+    box-shadow: inset 3px 0 0 var(--fy-accent-resolved);
+    background: var(--fy-accent-softer);
+  }
+}
+
+.DiscussionListItem--unread .DiscussionListItem-title {
+  color: var(--heading-color);
+}
+
+.DiscussionListItem-count {
+  border-radius: 999px;
+}
+.DiscussionListItem--unread .DiscussionListItem-count {
+  background: var(--fy-accent-soft);
+  color: var(--fy-accent-resolved);
+}
+
+.IndexPage-toolbar .Button {
+  border-radius: var(--border-radius);
+}

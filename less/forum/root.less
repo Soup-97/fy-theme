@@ -1,0 +1,102 @@
+// ---------------------------------------------------------------------------
+// Tokens. Options are mapped onto Flarum's own variables so core and other
+// extensions pick them up too.
+
+html[data-theme] {
+  --fy-accent-resolved: var(--fy-accent, @primary-color);
+  --fy-accent-2-resolved: var(--fy-accent-2, @secondary-color);
+  --fy-gradient: ~"linear-gradient(var(--fy-gradient-angle, 135deg), var(--fy-accent-resolved), var(--fy-accent-2-resolved))";
+  --fy-accent-soft: ~"color-mix(in srgb, var(--fy-accent-resolved) 14%, transparent)";
+  --fy-accent-softer: ~"color-mix(in srgb, var(--fy-accent-resolved) 7%, transparent)";
+  --fy-on-accent: #fff;
+
+  --primary-color: var(--fy-accent-resolved);
+  --link-color: var(--fy-accent-resolved);
+  --button-primary-bg: var(--fy-accent-resolved);
+  --button-primary-bg-hover: ~"color-mix(in srgb, var(--fy-accent-resolved) 88%, #000)";
+  --button-primary-bg-active: ~"color-mix(in srgb, var(--fy-accent-resolved) 78%, #000)";
+  --button-primary-bg-disabled: var(--fy-accent-resolved);
+  --button-primary-color: var(--fy-on-accent);
+  --header-bg-colored: var(--fy-accent-resolved);
+
+  --border-radius: var(--fy-radius, @border-radius);
+  --fy-radius-lg: ~"calc(var(--fy-radius, 4px) * 1.5)";
+  --fy-radius-sm: ~"calc(var(--fy-radius, 4px) * 0.6)";
+
+  --container-hd: var(--fy-container, 1200px);
+  --container-xl: var(--fy-container, 1300px);
+  --container-xxl: var(--fy-container, 1500px);
+  --discussion-content-max-width: var(--fy-reading-width, 100ch);
+  --header-height: var(--fy-header-height, @header-height);
+
+  --post-font-size: ~"calc(14px * var(--fy-font-scale, 100) / 100)";
+  --fy-gap: 16px;
+  --fy-pad: 16px;
+}
+
+// Pick black or white text on the accent, by the accent's own lightness.
+@supports (color: oklch(from red l c h)) {
+  html[data-theme] {
+    --fy-on-accent: ~"oklch(from var(--fy-accent-resolved) clamp(0, (0.7 - l) * 1000, 1) 0 0)";
+  }
+}
+
+html[data-theme^=light] {
+  --body-bg: var(--fy-light-bg, @body-bg-light);
+  --fy-surface: var(--fy-light-surface, #fff);
+  --fy-border: ~"color-mix(in srgb, var(--text-color) 9%, transparent)";
+  --fy-glass: ~"color-mix(in srgb, var(--fy-surface) 72%, transparent)";
+}
+
+html[data-theme^=dark] {
+  --body-bg: var(--fy-dark-bg, @body-bg-dark);
+  --fy-surface: var(--fy-dark-surface, lighten(@body-bg-dark, 4%));
+  --fy-border: ~"color-mix(in srgb, var(--text-color) 11%, transparent)";
+  --fy-glass: ~"color-mix(in srgb, var(--fy-surface) 65%, transparent)";
+}
+
+html[data-theme] {
+  --body-bg-shaded: ~"color-mix(in srgb, var(--body-bg) 96%, #000)";
+  --body-bg-light: ~"color-mix(in srgb, var(--body-bg) 92%, #fff)";
+  --body-bg-faded: ~"color-mix(in srgb, var(--body-bg) 93%, transparent)";
+  --control-body-bg-mix: ~"color-mix(in srgb, var(--control-bg) 50%, var(--body-bg))";
+}
+
+// Density
+html[data-fy-density=compact] {
+  --fy-gap: 8px;
+  --fy-pad: 10px;
+  --post-padding: 12px;
+}
+html[data-fy-density=spacious] {
+  --fy-gap: 24px;
+  --fy-pad: 22px;
+  --post-padding: 28px;
+}
+
+// Shadows
+html { --fy-shadow: none; --fy-shadow-hover: none; }
+html[data-fy-shadows=soft] {
+  --fy-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 2px 8px rgba(0, 0, 0, .04);
+  --fy-shadow-hover: 0 4px 18px rgba(0, 0, 0, .08);
+}
+html[data-fy-shadows=medium] {
+  --fy-shadow: 0 2px 4px rgba(0, 0, 0, .06), 0 6px 18px rgba(0, 0, 0, .07);
+  --fy-shadow-hover: 0 10px 30px rgba(0, 0, 0, .12);
+}
+html[data-fy-shadows=strong] {
+  --fy-shadow: 0 4px 10px rgba(0, 0, 0, .12), 0 12px 32px rgba(0, 0, 0, .14);
+  --fy-shadow-hover: 0 16px 44px rgba(0, 0, 0, .2);
+}
+html[data-theme^=dark][data-fy-shadows] {
+  --fy-shadow-hover: 0 10px 30px rgba(0, 0, 0, .45);
+}
+
+// Motion
+html { --fy-ease: cubic-bezier(.2, .7, .2, 1); --fy-duration: .2s; }
+html[data-fy-animations=playful] { --fy-ease: cubic-bezier(.34, 1.56, .64, 1); --fy-duration: .32s; }
+html[data-fy-animations=none] { --fy-duration: 0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { --fy-duration: 0s; }
+}
